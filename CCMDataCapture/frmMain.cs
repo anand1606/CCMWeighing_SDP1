@@ -191,47 +191,47 @@ namespace CCMDataCapture
             bool t1,t2,t3,t4,t5,t6;
 
 
-            xtraTabCCM1.Text = "CCM-P";
-            t1 = weightCanwas1.model.Connect(RBMQServer, SQLConStr, strlstLength, strlstClass, strlstdia,strlstMaterial,strlstStandard, "P", "", "",true);
+            xtraTabCCM1.Text = "CCM-U";
+            t1 = weightCanwas1.model.Connect(RBMQServer, SQLConStr, strlstLength, strlstClass, strlstdia,strlstMaterial,strlstStandard, "U", "", "",true);
             Thread.Sleep(100);
 
-            xtraTabCCM2.Text = "CCM-Q";
-            t2 = weightCanwas2.model.Connect(RBMQServer, SQLConStr, strlstLength, strlstClass, strlstdia, strlstMaterial, strlstStandard, "Q", "", "", true);
+            xtraTabCCM2.Text = "CCM-V";
+            t2 = weightCanwas2.model.Connect(RBMQServer, SQLConStr, strlstLength, strlstClass, strlstdia, strlstMaterial, strlstStandard, "V", "", "", true);
             Thread.Sleep(100);
 
-            xtraTabCCM3.Text = "CCM-R";
-            t3 = weightCanwas3.model.Connect(RBMQServer, SQLConStr, strlstLength, strlstClass, strlstdia, strlstMaterial, strlstStandard, "R", "", "", true);
+            xtraTabCCM3.Text = "CCM-W";
+            t3 = weightCanwas3.model.Connect(RBMQServer, SQLConStr, strlstLength, strlstClass, strlstdia, strlstMaterial, strlstStandard, "W", "", "", true);
             Thread.Sleep(100);
 
-            xtraTabCCM4.Text = "CCM-S";
-            t4 = weightCanwas4.model.Connect(RBMQServer, SQLConStr, strlstLength, strlstClass, strlstdia, strlstMaterial, strlstStandard, "S", "", "", true);
+            xtraTabCCM4.Text = "CCM-X";
+            t4 = weightCanwas4.model.Connect(RBMQServer, SQLConStr, strlstLength, strlstClass, strlstdia, strlstMaterial, strlstStandard, "X", "", "", true);
             Thread.Sleep(100);
 
-            xtraTabCCM5.Text = "CCM-T";
-            t5 = weightCanwas5.model.Connect(RBMQServer, SQLConStr, strlstLength, strlstClass, strlstdia, strlstMaterial, strlstStandard, "T", "", "", true);
+            xtraTabCCM5.Text = "CCM-Y";
+            t5 = weightCanwas5.model.Connect(RBMQServer, SQLConStr, strlstLength, strlstClass, strlstdia, strlstMaterial, strlstStandard, "Y", "", "", true);
             Thread.Sleep(100);
 
-            xtraTabCCM6.Text = "CCM-N";
-            t6 = weightCanwas6.model.Connect(RBMQServer, SQLConStr, strlstLength, strlstClass, strlstdia, strlstMaterial, strlstStandard, "N", "", "", true);
+            xtraTabCCM6.Text = "CCM-Z";
+            t6 = weightCanwas6.model.Connect(RBMQServer, SQLConStr, strlstLength, strlstClass, strlstdia, strlstMaterial, strlstStandard, "Z", "", "", true);
             Thread.Sleep(100);
 
 
-            t1 = mainCanwas1.model.Connect(RBMQServer, SQLConStr, "P", "", "", false);
+            t1 = mainCanwas1.model.Connect(RBMQServer, SQLConStr, "U", "", "", false);
             Thread.Sleep(100);
 
-            t2 = mainCanwas2.model.Connect(RBMQServer, SQLConStr, "Q", "", "", false);
+            t2 = mainCanwas2.model.Connect(RBMQServer, SQLConStr, "V", "", "", false);
             Thread.Sleep(100);
 
-            t3 = mainCanwas3.model.Connect(RBMQServer, SQLConStr, "R", "", "", false);
+            t3 = mainCanwas3.model.Connect(RBMQServer, SQLConStr, "W", "", "", false);
             Thread.Sleep(100);
 
-            t4 = mainCanwas4.model.Connect(RBMQServer, SQLConStr, "S", "", "", false);
+            t4 = mainCanwas4.model.Connect(RBMQServer, SQLConStr, "X", "", "", false);
             Thread.Sleep(100);
 
-            t5 = mainCanwas5.model.Connect(RBMQServer, SQLConStr, "T", "", "", false);
+            t5 = mainCanwas5.model.Connect(RBMQServer, SQLConStr, "Y", "", "", false);
             Thread.Sleep(100);
 
-            t6 = mainCanwas6.model.Connect(RBMQServer, SQLConStr, "N", "", "", false);
+            t6 = mainCanwas6.model.Connect(RBMQServer, SQLConStr, "Z", "", "", false);
             Thread.Sleep(100);
 
 
@@ -483,7 +483,7 @@ namespace CCMDataCapture
                 "Select Convert(varchar(10),C.tDate,121) as [Date],C.tShift as [Shift],SrNo, IntSrNo as [SizeSrNo], Convert(varchar(8),Convert(time(5),LogDateTime)) as [Time]," +
                 " MachineNo,PipeDia,PipeClass,PipeLength,PipeNumber,JointType,MouldNo,MinWt,MaxWt,ActWt,NomWt, " +
                 " (case when (ActWt <= NomWt) then (ActWt-NomWt) else (NomWt-ActWt) end) as DevKG , " +
-                " ABS((Case When (NomWt <= 0 ) then 0 else Round(((NomWt-ActWt)/NomWt*100),3) end)) as DevPer,Remarks,info.InchargeName, PipeStatus,Material,Standard, OperatorCode,OperatorName  " +
+                " (Case When (NomWt <= 0 ) then 0 else Round(((NomWt-ActWt)/NomWt*100),3) end) as DevPer,Remarks,info.InchargeName, PipeStatus,Material,Standard, OperatorCode,OperatorName  " +
                 " From [" + tTableName + "] C left outer join ccmShiftWiseInfo info on c.tDate = info.tDate and c.tShift = info.tShift ";
             
                     
